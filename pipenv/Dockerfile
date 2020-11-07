@@ -1,9 +1,10 @@
 FROM ubuntu:focal-20201008
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
 
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/apt/sources.list && \
     apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
         python3-pip=20.0.2-5ubuntu1.1 \
         python3-dev=3.8.2-0ubuntu2 \
