@@ -30,7 +30,7 @@ RUN wget -nv https://github.com/pyenv/pyenv/archive/v1.2.21.tar.gz && \
     rm v1.2.21.tar.gz && \
     echo "eval \"$(pyenv init -)\"" >> ~/.bash_profile
 
-RUN pip3 install pipenv==2020.11.4
+RUN pip3 install pipenv==2020.11.15
 
 RUN eval "$(pyenv init -)" && \
     pyenv install 3.9.0 && \
