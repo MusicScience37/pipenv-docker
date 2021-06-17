@@ -26,7 +26,7 @@ ENV PATH="${PYENV_ROOT}/bin:${PATH}"
 WORKDIR /root
 RUN wget -nv https://github.com/pyenv/pyenv/archive/refs/tags/v2.0.1.tar.gz && \
     tar xf v2.0.1.tar.gz && \
-    mv pyenv-v2.0.1 .pyenv && \
+    mv pyenv-2.0.1 .pyenv && \
     rm v2.0.1.tar.gz && \
     echo "eval \"$(pyenv init --path)\"" >> ~/.profile && \
     pip3 install --no-cache-dir pipenv==2021.5.29 && \
