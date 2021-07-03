@@ -36,7 +36,7 @@ build:
 build tag:
   extends: .build-hub-base
   variables:
-    IMAGE_NAME: "$CI_REGISTRY_IMAGE"
+    IMAGE_NAME: "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"
     HUB_IMAGE_NAME: "$HUB_REPO_NAME:$CI_COMMIT_TAG"
   only:
     - tags
@@ -44,7 +44,7 @@ build tag:
 build master:
   extends: .build-hub-base
   variables:
-    IMAGE_NAME: "$CI_REGISTRY_IMAGE"
+    IMAGE_NAME: "$CI_REGISTRY_IMAGE:latest"
     HUB_IMAGE_NAME: "$HUB_REPO_NAME:latest"
   only:
     - master
