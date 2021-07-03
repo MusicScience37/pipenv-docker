@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20210416
+FROM ubuntu:focal-20210609
 
 ENV LANG=C.UTF-8
 
@@ -16,21 +16,22 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/
     curl=7.68.0-1ubuntu2.5 \
     tzdata=2021a-0ubuntu0.20.04 && \
     apt-get build-dep -y --no-install-recommends \
-    python3.8=3.8.5-1~20.04.3 && \
+    python3.8=3.8.10-0ubuntu1~20.04 && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     rm -r /var/lib/apt/lists/*
 
 ENV PYENV_ROOT="/root/.pyenv"
-ENV PATH="${PYENV_ROOT}/bin:${PATH}"
+ENV PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 WORKDIR /root
-RUN wget -nv https://github.com/pyenv/pyenv/archive/refs/tags/v2.0.1.tar.gz && \
-    tar xf v2.0.1.tar.gz && \
-    mv pyenv-2.0.1 .pyenv && \
-    rm v2.0.1.tar.gz && \
+RUN wget -nv https://github.com/pyenv/pyenv/archive/refs/tags/v2.0.3.tar.gz && \
+    tar xf v2.0.3.tar.gz && \
+    mv pyenv-2.0.3 .pyenv && \
+    rm v2.0.3.tar.gz && \
     echo "eval \"$(pyenv init --path)\"" >> ~/.profile && \
     pip3 install --no-cache-dir pipenv==2021.5.29 && \
-    eval "$(pyenv init -)" && \
-    pyenv install 3.8.10 && \
-    pyenv install 3.9.5 && \
-    pyenv global 3.8.10
+    eval "$(pyenv init --path)" && \
+    export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
+    pyenv install 3.8.11 && \
+    pyenv install 3.9.6 && \
+    pyenv global 3.8.11
