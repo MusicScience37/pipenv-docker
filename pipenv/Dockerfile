@@ -14,7 +14,7 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/
     git=1:2.25.1-1ubuntu3.2 \
     wget=1.20.3-1ubuntu1 \
     curl=7.68.0-1ubuntu2.7 \
-    tzdata=2021a-0ubuntu0.20.04 && \
+    tzdata=2021a-2ubuntu0.20.04 && \
     apt-get build-dep -y --no-install-recommends \
     python3.8=3.8.10-0ubuntu1~20.04.1 && \
     apt-get autoremove -y && \
