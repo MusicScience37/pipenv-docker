@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20211006
+FROM ubuntu:focal-20220113
 
 ENV LANG=C.UTF-8
 
@@ -22,17 +22,16 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/
     rm -r /var/lib/apt/lists/*
 
 ENV PYENV_ROOT="/root/.pyenv"
-ENV PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
+ENV PATH="/root/.local/bin:${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 WORKDIR /root
-RUN wget -nv https://github.com/pyenv/pyenv/archive/refs/tags/v2.2.3.tar.gz && \
-    tar xf v2.2.3.tar.gz && \
-    mv pyenv-2.2.3 .pyenv && \
-    rm v2.2.3.tar.gz && \
-    echo "eval \"$(pyenv init --path)\"" >> ~/.profile && \
+RUN wget -nv https://github.com/pyenv/pyenv/archive/refs/tags/v2.2.4.tar.gz && \
+    tar xf v2.2.4.tar.gz && \
+    mv pyenv-2.2.4 .pyenv && \
+    rm v2.2.4.tar.gz && \
+    echo "eval \"$(pyenv init --path)\"" >> /root/.profile && \
+    echo "eval \"$(pyenv init -)\"" >> /root/.bashrc && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.8.12 && \
-    pyenv install 3.9.9 && \
-    pyenv install 3.10.1 && \
-    pyenv global 3.9.9 && \
-    pip3 install --no-cache-dir pipenv==2021.11.23
+    pyenv install 3.9.10 && \
+    pip3 install --no-cache-dir pipx==1.0.0 && \
+    pipx install pipenv==2022.1.8
