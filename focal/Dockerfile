@@ -24,14 +24,11 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/
 ENV PYENV_ROOT="/root/.pyenv"
 ENV PATH="/root/.local/bin:${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 WORKDIR /root
-RUN wget -nv https://github.com/pyenv/pyenv/archive/refs/tags/v2.2.4.tar.gz && \
-    tar xf v2.2.4.tar.gz && \
-    mv pyenv-2.2.4 .pyenv && \
-    rm v2.2.4.tar.gz && \
-    echo "eval \"$(pyenv init --path)\"" >> /root/.profile && \
-    echo "eval \"$(pyenv init -)\"" >> /root/.bashrc && \
+RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
+    bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
     pyenv install 3.9.10 && \
     pip3 install --no-cache-dir pipx==1.0.0 && \
-    pipx install pipenv==2022.1.8
+    pipx install pipenv==2022.1.8 && \
+    pyenv global 3.9.10
