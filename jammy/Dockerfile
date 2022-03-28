@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20220130
+FROM ubuntu:jammy-20220315
 
 ENV LANG=C.UTF-8
 
@@ -6,15 +6,15 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main" >> /etc/apt/sour
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
-    tzdata=2021e-1ubuntu1 && \
+    tzdata=2022a-0ubuntu1 && \
     apt-get build-dep -y --no-install-recommends \
-    python3.9=3.9.10-1 && \
+    python3.9=3.9.10-2 && \
     apt-get install -y --no-install-recommends \
     python3-pip=22.0.2+dfsg-1 \
-    python3-dev=3.9.7-4 \
+    python3-dev=3.10.1-0ubuntu2 \
     python3-setuptools=59.6.0-1.2 \
     python3-wheel=0.37.1-2 \
-    python3-venv=3.9.7-4 \
+    python3-venv=3.10.1-0ubuntu2 \
     git=1:2.34.1-1ubuntu1 \
     wget=1.21.2-2ubuntu1 \
     curl=7.81.0-1 && \
@@ -31,5 +31,5 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
     pyenv install 3.9.10 && \
     pip3 install --no-cache-dir pipx==1.0.0 && \
-    pipx install pipenv==2022.1.8 && \
+    pipx install pipenv==2022.3.28 && \
     pyenv global 3.9.10
