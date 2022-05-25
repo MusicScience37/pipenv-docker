@@ -17,7 +17,7 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main" >> /etc/apt/sour
     python3-venv=3.10.4-0ubuntu2 \
     git=1:2.34.1-1ubuntu1.2 \
     wget=1.21.2-2ubuntu1 \
-    curl=7.81.0-1ubuntu1.1 && \
+    curl=7.81.0-1ubuntu1.2 && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     rm -r /var/lib/apt/lists/*
