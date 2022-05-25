@@ -17,7 +17,7 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/
     python3-venv=3.8.2-0ubuntu2 \
     git=1:2.25.1-1ubuntu3.4 \
     wget=1.20.3-1ubuntu2 \
-    curl=7.68.0-1ubuntu2.10 && \
+    curl=7.68.0-1ubuntu2.11 && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     rm -r /var/lib/apt/lists/*
