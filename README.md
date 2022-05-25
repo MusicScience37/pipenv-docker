@@ -4,7 +4,7 @@
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/MusicScience37/pipenv-docker?label=latest)
 
-[![pipeline status](https://gitlab.com/musicscience37_ci/pipenv-docker/badges/develop/pipeline.svg)](https://gitlab.com/musicscience37_ci/pipenv-docker/commits/develop)
+[![pipeline status](https://gitlab.com/musicscience37/pipenv-docker/badges/develop/pipeline.svg)](https://gitlab.com/musicscience37/pipenv-docker/commits/develop)
 
 Dockerfile to use pipenv in Docker container.
 
@@ -19,14 +19,14 @@ Container images contains the following tools:
 
 You can pull automatically built images from following registries:
 
-- [GitLab Container Registry](https://gitlab.com/musicscience37_ci/pipenv-docker/container_registry)
-  - latest stable image: `registry.gitlab.com/musicscience37_ci/pipenv-docker`
+- [GitLab Container Registry](https://gitlab.com/musicscience37/pipenv-docker/container_registry)
+  - latest stable image: `registry.gitlab.com/musicscience37/pipenv-docker`
 - [Docker Hub](https://hub.docker.com/r/musicscience37/pipenv)
   - latest stable image: `docker pull musicscience37/pipenv`
 
 ## Repositories
 
-- [GitLab](https://gitlab.com/musicscience37_ci/pipenv-docker):
+- [GitLab](https://gitlab.com/musicscience37/pipenv-docker):
   for development including CI
 - [GitHub](https://github.com/MusicScience37/pipenv-docker):
   mirror repository
