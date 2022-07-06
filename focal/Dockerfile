@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20220426
+FROM ubuntu:focal-20220531
 
 ENV LANG=C.UTF-8
 
@@ -17,7 +17,7 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main" >> /etc/
     python3-venv=3.8.2-0ubuntu2 \
     git=1:2.25.1-1ubuntu3.4 \
     wget=1.20.3-1ubuntu2 \
-    curl=7.68.0-1ubuntu2.11 && \
+    curl=7.68.0-1ubuntu2.12 && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     rm -r /var/lib/apt/lists/*
@@ -29,7 +29,8 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.9.12 && \
-    pip3 install --no-cache-dir pipx==1.0.0 && \
-    pipx install pipenv==2022.5.2 && \
-    pyenv global 3.9.12
+    pyenv install 3.9.13 && \
+    pyenv install 3.10.5 && \
+    pip3 install --no-cache-dir pipx==1.1.0 && \
+    pipx install pipenv==2022.7.4 && \
+    pyenv global 3.9.13
