@@ -4,6 +4,7 @@ set -e
 
 # run test of this project
 
-compose_file=$1/docker-compose.test.yml
-docker compose -f $compose_file up --build
-docker compose -f $compose_file down
+export IMAGE="musicscience37/pipenv:$1-test"
+docker build -t "$IMAGE" "$1"
+docker compose up
+docker compose down
