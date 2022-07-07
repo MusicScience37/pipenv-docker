@@ -5,7 +5,7 @@ variables:
   HUB_REPO_NAME: musicscience37/pipenv
 
 .build-base:
-  image: tmaier/docker-compose:latest
+  image: docker:latest
   stage: build
   services:
     - docker:dind
