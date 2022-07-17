@@ -1,8 +1,0 @@
-version: "3"
-
-services:
-  sut:
-    image: ${IMAGE}
-    volumes:
-      - ./test:/home/test
-    command: /home/test/run_test.sh

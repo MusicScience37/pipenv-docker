@@ -1,0 +1,11 @@
+{
+  "hadolint.cliOptions": [
+    "--ignore",
+    "DL3008",
+    "--ignore",
+    "DL3013",
+    "--no-color"
+  ],
+  "python.formatting.provider": "black",
+  "cSpell.words": ["musicscience"]
+}

@@ -34,4 +34,4 @@ You can pull automatically built images from following registries:
 ## Testing
 
 For test of this project,
-execute `./run_test.sh` script.
+use `./tool.py test` command.
