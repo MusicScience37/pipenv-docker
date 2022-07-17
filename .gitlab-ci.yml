@@ -19,6 +19,7 @@ stages:
   extends: .test-base
   script:
     - python3 ./tool.py update $IMAGE_DIR
+  except: []
   only:
     - main
 
@@ -35,9 +36,9 @@ update focal:
 test jammy:
   extends: .test-base
   variables:
-    IMAGE_DIR: focal
+    IMAGE_DIR: jammy
 
 update jammy:
   extends: .update-base
   variables:
-    IMAGE_DIR: focal
+    IMAGE_DIR: jammy
