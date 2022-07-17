@@ -6,6 +6,9 @@ stages:
   stage: build
   services:
     - docker:dind
+  before_script:
+    - apk add python3 py3-pip
+    - pip3 install click
   script:
     - apk add python3 py3-pip
     - python3 ./tool.py test $IMAGE_DIR
@@ -13,12 +16,8 @@ stages:
     - main
 
 .update-base:
-  image: docker:latest
-  stage: build
-  services:
-    - docker:dind
+  extends: .test-base
   script:
-    - apk add python3 py3-pip
     - python3 ./tool.py update $IMAGE_DIR
   only:
     - main
@@ -29,6 +28,16 @@ test focal:
     IMAGE_DIR: focal
 
 update focal:
+  extends: .update-base
+  variables:
+    IMAGE_DIR: focal
+
+test jammy:
+  extends: .test-base
+  variables:
+    IMAGE_DIR: focal
+
+update jammy:
   extends: .update-base
   variables:
     IMAGE_DIR: focal
