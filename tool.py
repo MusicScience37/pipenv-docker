@@ -37,7 +37,7 @@ THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 GITLAB_IMAGE_URL = "registry.gitlab.com/musicscience37/pipenv-docker"
 DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 
-IMAGE_TAGS = ["focal", "jammy"]
+IMAGE_TAGS = ["focal", "jammy", "kinetic"]
 LATEST_IMAGE_TAG = IMAGE_TAGS[1]
 
 
@@ -172,7 +172,7 @@ def test(dir_name: str):
 @cli.command()
 @click.argument("dir_name", type=click.Choice(IMAGE_TAGS))
 def update(dir_name: str):
-    """Build and test Docker image."""
+    """Build, test, and update Docker image."""
 
     image_full_name = f"{GITLAB_IMAGE_URL}:{dir_name}"
     _build(dir_name=dir_name, image_full_name=image_full_name)
