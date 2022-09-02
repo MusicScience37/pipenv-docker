@@ -55,3 +55,15 @@ update jammy:
   extends: .update-base
   variables:
     IMAGE_DIR: jammy
+
+test kinetic:
+  extends: .test-base
+  variables:
+    IMAGE_DIR: kinetic
+  allow_failure: true
+
+update kinetic:
+  extends: .update-base
+  variables:
+    IMAGE_DIR: kinetic
+  allow_failure: true
