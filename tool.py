@@ -148,10 +148,6 @@ def _upload(dir_name: str, image_full_name: str):
         image_full_name=image_full_name,
         another_image_full_name=f"{DOCKER_HUB_IMAGE_URL}:{dir_name}",
     )
-    _tag_and_upload(
-        image_full_name=image_full_name,
-        another_image_full_name=f"{DOCKER_HUB_IMAGE_URL}:{dir_name}-{_create_time_stamp()}",
-    )
     if dir_name == LATEST_IMAGE_TAG:
         _tag_and_upload(
             image_full_name=image_full_name,
