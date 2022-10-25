@@ -48,9 +48,9 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.8.13 && \
-    pyenv install 3.9.13 && \
-    pyenv install 3.10.6 && \
+    pyenv install 3.8.14 && \
+    pyenv install 3.9.14 && \
+    pyenv install 3.10.7 && \
     pip3 install --no-cache-dir pipx && \
     pipx install pipenv && \
-    pyenv global 3.9.13
+    pyenv global 3.9.14
