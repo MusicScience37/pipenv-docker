@@ -35,6 +35,7 @@ RUN apt-get update && \
     python3-venv \
     # Packages for development
     git \
+    git-lfs \
     nano \
     && \
     apt-get autoremove -y && \
