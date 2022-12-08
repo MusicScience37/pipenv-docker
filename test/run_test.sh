@@ -6,7 +6,7 @@ echo "> python version"
 python --version
 
 echo "> python shared library"
-ls -l ~/.pyenv/versions/3.10.8/lib/libpython3.so
+ls -l ~/.pyenv/versions/3.10.9/lib/libpython3.so
 
 echo "> pipenv version"
 pipenv --version
