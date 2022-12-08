@@ -55,4 +55,5 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     pyenv install 3.11.1 && \
     pip3 install --no-cache-dir pipx && \
     pipx install pipenv && \
+    pipx install poetry && \
     pyenv global 3.10.9
