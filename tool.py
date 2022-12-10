@@ -34,7 +34,7 @@ import click
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
-GITLAB_IMAGE_URL = "registry.gitlab.com/musicscience37/pipenv-docker"
+GITLAB_IMAGE_URL = "registry.gitlab.com/musicscience37projects/docker/pipenv-docker"
 DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 
 IMAGE_TAGS = ["focal", "jammy", "kinetic"]
