@@ -10,13 +10,16 @@ container_scanning:
   rules:
     - if: $CI_COMMIT_BRANCH &&
         $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  needs:
-    - "update focal"
-    - "update jammy"
 
-.test-base:
-  image: docker:latest
+test:
   stage: build
+  rules:
+    - if: $CI_COMMIT_BRANCH &&
+        $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+  parallel:
+    matrix:
+      - IMAGE_DIR: ["focal", "jammy"]
+  image: docker:latest
   services:
     - docker:dind
   before_script:
@@ -25,45 +28,28 @@ container_scanning:
   script:
     - apk add python3 py3-pip
     - python3 ./tool.py test $IMAGE_DIR
-  except:
-    - main
 
-.update-base:
-  extends: .test-base
-  script:
-    - python3 ./tool.py update $IMAGE_DIR
-  except: []
-  only:
-    - main
-
-test focal:
-  extends: .test-base
-  variables:
-    IMAGE_DIR: focal
-
-update focal:
-  extends: .update-base
-  variables:
-    IMAGE_DIR: focal
-
-test jammy:
-  extends: .test-base
-  variables:
-    IMAGE_DIR: jammy
-
-update jammy:
-  extends: .update-base
-  variables:
-    IMAGE_DIR: jammy
-
-test kinetic:
-  extends: .test-base
-  variables:
-    IMAGE_DIR: kinetic
+test experimental:
+  extends: test
+  parallel:
+    matrix:
+      - IMAGE_DIR: ["kinetic"]
   allow_failure: true
 
-update kinetic:
-  extends: .update-base
-  variables:
-    IMAGE_DIR: kinetic
+update:
+  extends: test
+  rules:
+    - if: $CI_COMMIT_BRANCH &&
+        $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  parallel:
+    matrix:
+      - IMAGE_DIR: ["focal", "jammy"]
+  script:
+    - python3 ./tool.py update $IMAGE_DIR
+
+update experimental:
+  extends: update
+  parallel:
+    matrix:
+      - IMAGE_DIR: ["kinetic"]
   allow_failure: true
