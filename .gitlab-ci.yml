@@ -18,7 +18,7 @@ test:
         $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   parallel:
     matrix:
-      - IMAGE_DIR: ["focal", "jammy"]
+      - IMAGE_TAG: ["focal", "jammy", "kinetic"]
   image: docker:latest
   services:
     - docker:dind
@@ -27,13 +27,13 @@ test:
     - pip3 install click
   script:
     - apk add python3 py3-pip
-    - python3 ./tool.py test $IMAGE_DIR
+    - python3 ./tool.py test $IMAGE_TAG
 
 test experimental:
   extends: test
   parallel:
     matrix:
-      - IMAGE_DIR: ["kinetic"]
+      - IMAGE_TAG: ["lunar"]
   allow_failure: true
 
 update:
@@ -43,13 +43,13 @@ update:
         $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   parallel:
     matrix:
-      - IMAGE_DIR: ["focal", "jammy"]
+      - IMAGE_TAG: ["focal", "jammy", "kinetic"]
   script:
-    - python3 ./tool.py update $IMAGE_DIR
+    - python3 ./tool.py update $IMAGE_TAG
 
 update experimental:
   extends: update
   parallel:
     matrix:
-      - IMAGE_DIR: ["kinetic"]
+      - IMAGE_TAG: ["lunar"]
   allow_failure: true
