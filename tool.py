@@ -37,7 +37,12 @@ THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 GITLAB_IMAGE_URL = "registry.gitlab.com/musicscience37projects/docker/pipenv-docker"
 DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 
-IMAGE_TAGS = ["focal", "jammy", "kinetic"]
+IMAGE_TAGS = [
+    "focal",  # 20.04 LTS
+    "jammy",  # 22.04 LTS
+    "kinetic",  # 22.10
+    "lunar",  # 23.04
+]
 LATEST_IMAGE_TAG = IMAGE_TAGS[1]
 
 
@@ -67,15 +72,25 @@ def _create_time_stamp() -> str:
     return datetime.datetime.now().strftime("%Y%m%d")
 
 
-def _build(dir_name: str, image_full_name: str):
+def _build(image_tag: str, image_full_name: str):
     """Build Docker image.
 
     Args:
-        dir_name (str): Directory name of Dockerfile.
+        image_tag (str): Tag of the image.
         image_full_name (str): Full name of the image.
     """
 
-    _run_command(["docker", "build", "-t", image_full_name, dir_name])
+    _run_command(
+        [
+            "docker",
+            "build",
+            "-t",
+            image_full_name,
+            "--build-arg",
+            f"IMAGE_TAG={image_tag}",
+            "common",
+        ]
+    )
 
 
 def _test(image_full_name: str):
@@ -104,11 +119,11 @@ def _tag_and_upload(image_full_name: str, another_image_full_name: str):
     _run_command(["docker", "push", another_image_full_name])
 
 
-def _upload(dir_name: str, image_full_name: str):
+def _upload(image_tag: str, image_full_name: str):
     """Upload Docker image.
 
     Args:
-        dir_name (str): Directory name of Dockerfile.
+        image_tag (str): Tag of the image.
         image_full_name (str): Full name of the image.
     """
 
@@ -126,9 +141,9 @@ def _upload(dir_name: str, image_full_name: str):
     _run_command(["docker", "push", image_full_name])
     _tag_and_upload(
         image_full_name=image_full_name,
-        another_image_full_name=f"{GITLAB_IMAGE_URL}:{dir_name}-{_create_time_stamp()}",
+        another_image_full_name=f"{GITLAB_IMAGE_URL}:{image_tag}-{_create_time_stamp()}",
     )
-    if dir_name == LATEST_IMAGE_TAG:
+    if image_tag == LATEST_IMAGE_TAG:
         _tag_and_upload(
             image_full_name=image_full_name,
             another_image_full_name=f"{GITLAB_IMAGE_URL}:latest",
@@ -146,9 +161,9 @@ def _upload(dir_name: str, image_full_name: str):
     )
     _tag_and_upload(
         image_full_name=image_full_name,
-        another_image_full_name=f"{DOCKER_HUB_IMAGE_URL}:{dir_name}",
+        another_image_full_name=f"{DOCKER_HUB_IMAGE_URL}:{image_tag}",
     )
-    if dir_name == LATEST_IMAGE_TAG:
+    if image_tag == LATEST_IMAGE_TAG:
         _tag_and_upload(
             image_full_name=image_full_name,
             another_image_full_name=f"{DOCKER_HUB_IMAGE_URL}:latest",
@@ -156,24 +171,24 @@ def _upload(dir_name: str, image_full_name: str):
 
 
 @cli.command()
-@click.argument("dir_name", type=click.Choice(IMAGE_TAGS))
-def test(dir_name: str):
+@click.argument("image_tag", type=click.Choice(IMAGE_TAGS))
+def test(image_tag: str):
     """Build and test Docker image."""
 
-    image_full_name = f"{GITLAB_IMAGE_URL}:{dir_name}-test"
-    _build(dir_name=dir_name, image_full_name=image_full_name)
+    image_full_name = f"{GITLAB_IMAGE_URL}:{image_tag}-test"
+    _build(image_tag=image_tag, image_full_name=image_full_name)
     _test(image_full_name=image_full_name)
 
 
 @cli.command()
-@click.argument("dir_name", type=click.Choice(IMAGE_TAGS))
-def update(dir_name: str):
+@click.argument("image_tag", type=click.Choice(IMAGE_TAGS))
+def update(image_tag: str):
     """Build, test, and update Docker image."""
 
-    image_full_name = f"{GITLAB_IMAGE_URL}:{dir_name}"
-    _build(dir_name=dir_name, image_full_name=image_full_name)
+    image_full_name = f"{GITLAB_IMAGE_URL}:{image_tag}"
+    _build(image_tag=image_tag, image_full_name=image_full_name)
     _test(image_full_name=image_full_name)
-    _upload(dir_name=dir_name, image_full_name=image_full_name)
+    _upload(image_tag=image_tag, image_full_name=image_full_name)
 
 
 if __name__ == "__main__":

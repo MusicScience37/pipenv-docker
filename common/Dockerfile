@@ -1,4 +1,5 @@
-FROM ubuntu:kinetic
+ARG IMAGE_TAG
+FROM ubuntu:${IMAGE_TAG}
 
 ENV LANG=C.UTF-8
 
