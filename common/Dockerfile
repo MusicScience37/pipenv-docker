@@ -28,12 +28,14 @@ RUN apt-get update && \
     libxmlsec1-dev \
     libffi-dev \
     liblzma-dev \
-    # Packages for pipx
+    # Packages for pipx, pipenv
     python3-pip \
     python3-dev \
     python3-setuptools \
     python3-wheel \
     python3-venv \
+    # Pipx
+    pipx \
     # Packages for development
     git \
     git-lfs \
@@ -54,7 +56,6 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     pyenv install 3.9.16 && \
     pyenv install 3.10.10 && \
     pyenv install 3.11.2 && \
-    pip3 install --no-cache-dir pipx && \
     pipx install pipenv && \
     pipx install poetry && \
     pyenv global 3.10.10 3.8.16 3.9.16 3.11.2
