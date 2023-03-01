@@ -43,6 +43,12 @@ IMAGE_TAGS = [
     "kinetic",  # 22.10
     "lunar",  # 23.04
 ]
+IMAGE_DIR_DICT = {
+    "focal": "focal",
+    "jammy": "since_jammy",
+    "kinetic": "since_jammy",
+    "lunar": "since_jammy",
+}
 LATEST_IMAGE_TAG = IMAGE_TAGS[1]
 
 
@@ -88,7 +94,7 @@ def _build(image_tag: str, image_full_name: str):
             image_full_name,
             "--build-arg",
             f"IMAGE_TAG={image_tag}",
-            "common",
+            IMAGE_DIR_DICT[image_tag],
         ]
     )
 
