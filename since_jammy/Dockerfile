@@ -54,8 +54,8 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
     pyenv install 3.8.16 && \
     pyenv install 3.9.16 && \
-    pyenv install 3.10.10 && \
-    pyenv install 3.11.2 && \
+    pyenv install 3.10.11 && \
+    pyenv install 3.11.3 && \
     pipx install pipenv && \
     pipx install poetry && \
-    pyenv global 3.10.10 3.8.16 3.9.16 3.11.2
+    pyenv global 3.10.11 3.8.16 3.9.16 3.11.3
