@@ -42,12 +42,14 @@ IMAGE_TAGS = [
     "jammy",  # 22.04 LTS
     "kinetic",  # 22.10
     "lunar",  # 23.04
+    "mantic",  # 23.10
 ]
 IMAGE_DIR_DICT = {
     "focal": "focal",
     "jammy": "since_jammy",
     "kinetic": "since_jammy",
     "lunar": "since_jammy",
+    "mantic": "since_jammy",
 }
 LATEST_IMAGE_TAG = IMAGE_TAGS[1]
 
@@ -120,7 +122,6 @@ def _test(image_full_name: str):
 
 
 def _tag_and_upload(image_full_name: str, another_image_full_name: str):
-
     _run_command(["docker", "tag", image_full_name, another_image_full_name])
     _run_command(["docker", "push", another_image_full_name])
 
