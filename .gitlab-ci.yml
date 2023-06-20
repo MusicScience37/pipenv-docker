@@ -18,7 +18,7 @@ test:
         $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   parallel:
     matrix:
-      - IMAGE_TAG: ["focal", "jammy", "kinetic"]
+      - IMAGE_TAG: ["focal", "jammy", "lunar"]
   image: docker:latest
   services:
     - docker:dind
@@ -33,7 +33,7 @@ test experimental:
   extends: test
   parallel:
     matrix:
-      - IMAGE_TAG: ["lunar"]
+      - IMAGE_TAG: ["mantic"]
   allow_failure: true
 
 update:
@@ -43,7 +43,7 @@ update:
         $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   parallel:
     matrix:
-      - IMAGE_TAG: ["focal", "jammy", "kinetic", "lunar"]
+      - IMAGE_TAG: ["focal", "jammy", "lunar"]
   script:
     - python3 ./tool.py update $IMAGE_TAG
 

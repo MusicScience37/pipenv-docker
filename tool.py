@@ -40,18 +40,16 @@ DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 IMAGE_TAGS = [
     "focal",  # 20.04 LTS
     "jammy",  # 22.04 LTS
-    "kinetic",  # 22.10
     "lunar",  # 23.04
     "mantic",  # 23.10
 ]
 IMAGE_DIR_DICT = {
     "focal": "focal",
     "jammy": "since_jammy",
-    "kinetic": "since_jammy",
     "lunar": "since_jammy",
     "mantic": "since_jammy",
 }
-LATEST_IMAGE_TAG = IMAGE_TAGS[1]
+LATEST_IMAGE_TAG = "jammy"
 
 
 @click.group()
