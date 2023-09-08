@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pipenv-docker"
+version = "0.0.0"
+description = ""
+authors = ["Kenta Kabashima <kenta_program37@hotmail.co.jp>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+click = "^8.1.7"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

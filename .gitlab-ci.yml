@@ -24,10 +24,10 @@ test:
     - docker:dind
   before_script:
     - apk add python3 py3-pip
-    - pip3 install click
+    - pip3 install poetry
+    - poetry install
   script:
-    - apk add python3 py3-pip
-    - python3 ./tool.py test $IMAGE_TAG
+    - poetry run python3 ./tool.py test $IMAGE_TAG
 
 test experimental:
   extends: test
@@ -45,7 +45,7 @@ update:
     matrix:
       - IMAGE_TAG: ["focal", "jammy", "lunar"]
   script:
-    - python3 ./tool.py update $IMAGE_TAG
+    - poetry run python3 ./tool.py update $IMAGE_TAG
 
 update experimental:
   extends: update
