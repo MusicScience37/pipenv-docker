@@ -34,6 +34,7 @@ RUN apt-get update && \
     python3-setuptools \
     python3-wheel \
     python3-venv \
+    python3.9-venv \
     # Packages for development
     git \
     git-lfs \
@@ -54,7 +55,7 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     pyenv install 3.9.17 && \
     pyenv install 3.10.12 && \
     pyenv install 3.11.4 && \
-    pip3 install --no-cache-dir pipx && \
+    python3.9 -m pip install --no-cache-dir pipx && \
     pipx install pipenv && \
     pipx install poetry && \
     pyenv global 3.10.12 3.8.17 3.9.17 3.11.4
