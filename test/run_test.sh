@@ -6,10 +6,10 @@ echo "> python version"
 python --version
 
 echo "> python3.x versions"
-python3.8 --version
 python3.9 --version
 python3.10 --version
 python3.11 --version
+python3.12 --version
 
 echo "> python shared library"
 ls -l ~/.pyenv/versions/3.11.7/lib/libpython3.so
