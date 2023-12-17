@@ -20,8 +20,7 @@ test:
   services:
     - docker:dind
   before_script:
-    - apk add python3 py3-pip
-    - pip3 install poetry
+    - apk add python3 py3-pip poetry
     - poetry install
   script:
     - poetry run python3 ./tool.py test $IMAGE_TAG
