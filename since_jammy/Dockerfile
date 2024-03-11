@@ -45,7 +45,8 @@ RUN apt-get update && \
     apt-get autoclean && \
     rm -r /var/lib/apt/lists/*
 
-RUN pipx install pipenv poetry
+RUN pipx install pipenv && \
+    pipx install poetry
 
 ENV PYENV_ROOT="/root/.pyenv"
 ENV PATH="/root/.local/bin:${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
