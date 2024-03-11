@@ -42,12 +42,14 @@ IMAGE_TAGS = [
     "jammy",  # 22.04 LTS
     "mantic",  # 23.10
     "noble",  # 24.04
+    "alpine",  # Alpine Linux
 ]
 IMAGE_DIR_DICT = {
     "focal": "focal",
     "jammy": "since_jammy",
     "mantic": "since_jammy",
     "noble": "since_jammy",
+    "alpine": "alpine",
 }
 LATEST_IMAGE_TAG = "jammy"
 

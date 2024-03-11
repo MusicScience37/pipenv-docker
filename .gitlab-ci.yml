@@ -27,7 +27,7 @@ test experimental:
   extends: test
   parallel:
     matrix:
-      - IMAGE_TAG: ["noble"]
+      - IMAGE_TAG: ["noble", "alpine"]
   allow_failure: true
 
 update:
@@ -45,5 +45,5 @@ update experimental:
   extends: update
   parallel:
     matrix:
-      - IMAGE_TAG: ["noble"]
+      - IMAGE_TAG: ["noble", "alpine"]
   allow_failure: true
