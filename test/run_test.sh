@@ -12,7 +12,7 @@ python3.11 --version
 python3.12 --version
 
 echo "> python shared library"
-ls -l ~/.pyenv/versions/3.11.8/lib/libpython3.so
+ls -l ~/.pyenv/versions/3.11.9/lib/libpython3.so
 
 echo "> pipenv version"
 pipenv --version
