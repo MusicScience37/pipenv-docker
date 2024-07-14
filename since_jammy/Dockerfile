@@ -58,5 +58,5 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     pyenv install 3.9.19 && \
     pyenv install 3.10.14 && \
     pyenv install 3.11.9 && \
-    pyenv install 3.12.3 && \
-    pyenv global 3.11.9 3.10.14 3.9.19 3.12.3
+    pyenv install 3.12.4 && \
+    pyenv global 3.12.4 3.11.9 3.10.14 3.9.19

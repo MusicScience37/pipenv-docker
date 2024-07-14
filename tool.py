@@ -40,7 +40,6 @@ DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 IMAGE_TAGS = [
     "focal",  # 20.04 LTS
     "jammy",  # 22.04 LTS
-    "mantic",  # 23.10
     "noble",  # 24.04
     "oracular",  # 24.10
     "alpine",  # Alpine Linux
@@ -48,7 +47,6 @@ IMAGE_TAGS = [
 IMAGE_DIR_DICT = {
     "focal": "focal",
     "jammy": "since_jammy",
-    "mantic": "since_jammy",
     "noble": "since_jammy",
     "oracular": "since_jammy",
     "alpine": "alpine",
