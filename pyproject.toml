@@ -5,6 +5,7 @@ description = ""
 authors = ["Kenta Kabashima <kenta_program37@hotmail.co.jp>"]
 readme = "README.md"
 packages = []
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
