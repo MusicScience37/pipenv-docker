@@ -12,7 +12,7 @@ python3.11 --version
 python3.12 --version
 
 echo "> python shared library"
-ls -l ~/.pyenv/versions/3.11.9/lib/libpython3.so
+ls -l ~/.pyenv/versions/3.12.6/lib/libpython3.so
 
 echo "> pipenv version"
 pipenv --version
@@ -21,5 +21,5 @@ echo "> test pipenv"
 rm -rf project
 mkdir project
 cd project
-pipenv --python 3.11
+pipenv --python 3.12
 pipenv install sphinx pylint pytest

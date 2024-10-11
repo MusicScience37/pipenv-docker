@@ -44,6 +44,10 @@ RUN apt-get update && \
     apt-get autoclean && \
     rm -r /var/lib/apt/lists/*
 
+RUN python3.9 -m pip install --no-cache-dir pipx && \
+    pipx install pipenv && \
+    pipx install poetry
+
 ENV PYENV_ROOT="/root/.pyenv"
 ENV PATH="/root/.local/bin:${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 WORKDIR /root
@@ -51,11 +55,8 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.9.19 && \
-    pyenv install 3.10.14 && \
-    pyenv install 3.11.9 && \
-    pyenv install 3.12.4 && \
-    python3.9 -m pip install --no-cache-dir pipx && \
-    pipx install pipenv && \
-    pipx install poetry && \
-    pyenv global 3.12.4 3.11.9 3.10.14 3.9.19
+    pyenv install 3.9.20 && \
+    pyenv install 3.10.15 && \
+    pyenv install 3.11.10 && \
+    pyenv install 3.12.6 && \
+    pyenv global 3.12.6 3.11.10 3.10.15 3.9.20
