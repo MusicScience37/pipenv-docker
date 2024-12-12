@@ -42,6 +42,7 @@ IMAGE_TAGS = [
     "jammy",  # 22.04 LTS
     "noble",  # 24.04
     "oracular",  # 24.10
+    "plucky",  # 25.04
     "alpine",  # Alpine Linux
 ]
 IMAGE_DIR_DICT = {
