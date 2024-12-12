@@ -50,6 +50,7 @@ IMAGE_DIR_DICT = {
     "jammy": "since_jammy",
     "noble": "since_jammy",
     "oracular": "since_jammy",
+    "plucky": "since_jammy",
     "alpine": "alpine",
 }
 LATEST_IMAGE_TAG = "jammy"
