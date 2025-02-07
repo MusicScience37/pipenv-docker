@@ -38,7 +38,6 @@ GITLAB_IMAGE_URL = "registry.gitlab.com/musicscience37projects/docker/pipenv-doc
 DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 
 IMAGE_TAGS = [
-    "focal",  # 20.04 LTS
     "jammy",  # 22.04 LTS
     "noble",  # 24.04
     "oracular",  # 24.10
@@ -46,7 +45,6 @@ IMAGE_TAGS = [
     "alpine",  # Alpine Linux
 ]
 IMAGE_DIR_DICT = {
-    "focal": "focal",
     "jammy": "since_jammy",
     "noble": "since_jammy",
     "oracular": "since_jammy",
