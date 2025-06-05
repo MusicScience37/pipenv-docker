@@ -13,7 +13,7 @@ test:
         $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   parallel:
     matrix:
-      - IMAGE_TAG: ["jammy", "noble", "oracular"]
+      - IMAGE_TAG: ["jammy", "noble", "plucky"]
   image: docker:latest
   services:
     - docker:dind
@@ -29,7 +29,7 @@ test experimental:
   extends: test
   parallel:
     matrix:
-      - IMAGE_TAG: ["alpine", "plucky"]
+      - IMAGE_TAG: ["alpine"]
   allow_failure: true
 
 update:
@@ -39,7 +39,7 @@ update:
         $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   parallel:
     matrix:
-      - IMAGE_TAG: ["jammy", "noble", "oracular"]
+      - IMAGE_TAG: ["jammy", "noble", "plucky"]
   script:
     - poetry run python3 ./tool.py update $IMAGE_TAG
 
@@ -47,5 +47,5 @@ update experimental:
   extends: update
   parallel:
     matrix:
-      - IMAGE_TAG: ["alpine", "plucky"]
+      - IMAGE_TAG: ["alpine"]
   allow_failure: true
