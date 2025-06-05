@@ -23,8 +23,7 @@
 # SOFTWARE.
 #
 
-"""Tool to create and test Docker image.
-"""
+"""Tool to create and test Docker image."""
 
 import datetime
 import os
@@ -40,14 +39,12 @@ DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 IMAGE_TAGS = [
     "jammy",  # 22.04 LTS
     "noble",  # 24.04
-    "oracular",  # 24.10
     "plucky",  # 25.04
     "alpine",  # Alpine Linux
 ]
 IMAGE_DIR_DICT = {
     "jammy": "since_jammy",
     "noble": "since_jammy",
-    "oracular": "since_jammy",
     "plucky": "since_jammy",
     "alpine": "alpine",
 }
