@@ -39,16 +39,18 @@ DOCKER_HUB_IMAGE_URL = "musicscience37/pipenv"
 IMAGE_TAGS = [
     "jammy",  # 22.04 LTS
     "noble",  # 24.04
-    "plucky",  # 25.04
+    "questing",  # 25.10
+    "resolute",  # 26.04 LTS
     "alpine",  # Alpine Linux
 ]
 IMAGE_DIR_DICT = {
     "jammy": "since_jammy",
     "noble": "since_jammy",
-    "plucky": "since_jammy",
+    "questing": "since_jammy",
+    "resolute": "since_jammy",
     "alpine": "alpine",
 }
-LATEST_IMAGE_TAG = "jammy"
+LATEST_IMAGE_TAG = "noble"
 
 
 @click.group()
