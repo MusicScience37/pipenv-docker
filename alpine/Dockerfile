@@ -16,6 +16,7 @@ RUN apk add --no-cache \
     readline-dev \
     sqlite-dev \
     tk-dev \
+    zstd-dev \
     # Packages for pipenv, poetry.
     pipx \
     # Additional packages for development.
@@ -36,8 +37,8 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.11.14 && \
-    pyenv install 3.12.12 && \
-    pyenv install 3.13.11 && \
-    pyenv install 3.14.2 && \
-    pyenv global 3.13.11 3.14.2 3.12.12 3.11.14
+    pyenv install 3.11.15 && \
+    pyenv install 3.12.13 && \
+    pyenv install 3.13.13 && \
+    pyenv install 3.14.5 && \
+    pyenv global 3.13.13 3.14.5 3.12.13 3.11.15
