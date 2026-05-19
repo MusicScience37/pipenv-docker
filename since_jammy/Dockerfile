@@ -18,9 +18,8 @@ RUN apt-get update && \
     libbz2-dev \
     libreadline-dev \
     libsqlite3-dev \
-    wget \
     curl \
-    llvm \
+    git \
     libncursesw5-dev \
     xz-utils \
     tk-dev \
@@ -28,6 +27,8 @@ RUN apt-get update && \
     libxmlsec1-dev \
     libffi-dev \
     liblzma-dev \
+    libzstd-dev \
+    llvm \
     # Packages for pipx, pipenv
     python3-pip \
     python3-dev \
@@ -40,6 +41,8 @@ RUN apt-get update && \
     git \
     git-lfs \
     nano \
+    wget \
+    ca-certificates \
     && \
     apt-get autoremove -y && \
     apt-get autoclean && \
@@ -55,8 +58,8 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.11.14 && \
-    pyenv install 3.12.12 && \
-    pyenv install 3.13.11 && \
-    pyenv install 3.14.2 && \
-    pyenv global 3.13.11 3.14.2 3.12.12 3.11.14
+    pyenv install 3.11.15 && \
+    pyenv install 3.12.13 && \
+    pyenv install 3.13.13 && \
+    pyenv install 3.14.5 && \
+    pyenv global 3.13.13 3.14.5 3.12.13 3.11.15
