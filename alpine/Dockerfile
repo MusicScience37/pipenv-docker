@@ -39,6 +39,6 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
     pyenv install 3.11.15 && \
     pyenv install 3.12.13 && \
-    pyenv install 3.13.13 && \
-    pyenv install 3.14.5 && \
-    pyenv global 3.13.13 3.14.5 3.12.13 3.11.15
+    pyenv install 3.13.14 && \
+    pyenv install 3.14.6 && \
+    pyenv global 3.13.14 3.14.6 3.12.13 3.11.15
