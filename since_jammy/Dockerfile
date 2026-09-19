@@ -1,4 +1,5 @@
 ARG IMAGE_TAG
+# IMAGE_TAG is set from tool.py script. So left blank here intentionally.
 FROM ubuntu:${IMAGE_TAG}
 
 ENV LANG=C.UTF-8
@@ -58,8 +59,8 @@ RUN wget -nv -O pyenv_install.bash https://pyenv.run && \
     bash pyenv_install.bash && \
     eval "$(pyenv init --path)" && \
     export PYTHON_CONFIGURE_OPTS="--enable-shared" && \
-    pyenv install 3.11.15 && \
-    pyenv install 3.12.13 && \
-    pyenv install 3.13.14 && \
-    pyenv install 3.14.6 && \
-    pyenv global 3.13.14 3.14.6 3.12.13 3.11.15
+    pyenv install 3.11.16 && \
+    pyenv install 3.12.14 && \
+    pyenv install 3.13.15 && \
+    pyenv install 3.14.7 && \
+    pyenv global 3.13.15 3.14.7 3.12.14 3.11.16
